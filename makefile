@@ -3,6 +3,6 @@ CFLAGS = -O3
 
 default:
 	$(MAKE) --directory=src/
-	mv src/barnes_algorithm ./
-	mv src/garbrecht_algorithm    ./
-	mv src/generate_square_grid   ./
+	mv src/barnes_algorithm.exe       ./
+	mv src/garbrecht_algorithm.exe    ./
+	mv src/generate_square_grid.exe   ./
