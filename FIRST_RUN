@@ -1,0 +1,8 @@
+#!/bin/bash
+make
+echo "Generating a square grid of size 100x100"
+./generate_square_grid 100
+echo "Running the algorithm by Barnes, Lehman, and Mulla on this grid"
+./barnes_algorithm square_grid.dem
+echo "Running the algorithm by Garbrecht and Martz on this grid"
+./garbrecht_algorithm square_grid.dem
