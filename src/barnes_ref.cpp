@@ -23,10 +23,10 @@ int main(int argc, char **argv){
 	d8_flow_directions(elevations,flowdirs);
 
   flat_resolution_timer.start();
-	int_2d flat_resolution_mask, groups;
-	resolve_flats_barnes(elevations,flowdirs,flat_resolution_mask,groups);
+	int_2d flat_resolution_mask, labels;
+	resolve_flats_barnes(elevations,flowdirs,flat_resolution_mask,labels);
   flat_resolution_timer.stop();
-	d8_flow_flats(flat_resolution_mask,groups,flowdirs);
+	d8_flow_flats(flat_resolution_mask,labels,flowdirs);
 
 	output_ascii_data("out_barnes",flowdirs,0);
   write_arrows("out_barnes_arrows",flowdirs);
