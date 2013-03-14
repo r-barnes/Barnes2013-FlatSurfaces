@@ -26,11 +26,16 @@ int main(int argc, char **argv){
 	int_2d flat_resolution_mask, labels;
 	resolve_flats_barnes(elevations,flowdirs,flat_resolution_mask,labels);
   flat_resolution_timer.stop();
+
+  //If you want to leave the DEM unaltered, use this command
 	d8_flow_flats(flat_resolution_mask,labels,flowdirs);
 
-//  flowdirs.init(-4);
-//  d8_flats_alter_dem(flat_resolution_mask, labels, elevations);
-//  d8_flow_directions(elevations,flowdirs);
+  //If you want to alter the DEM to enforce drainage, use these commands instead
+/*
+  flowdirs.init(-4);
+  d8_flats_alter_dem(flat_resolution_mask, labels, elevations);
+  d8_flow_directions(elevations,flowdirs);
+*/
 
 	output_ascii_data("out_barnes",flowdirs,0);
   write_arrows("out_barnes_arrows",flowdirs);
