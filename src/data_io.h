@@ -19,7 +19,7 @@ int write_arrows(const char filename[], const char_2d &flowdirs);
 //load_ascii_data
 /**
   @brief  Writes an ArcGrid ASCII file
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   @param[in]  &filename     Name of ArcGrid ASCII file to write
   @param[in]  &elevations   DEM object to write

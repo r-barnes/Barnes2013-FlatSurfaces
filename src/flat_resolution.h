@@ -24,7 +24,7 @@
 //Procedure: BuildAwayGradient
 /**
   @brief Build a gradient away from the high edges of the flats
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   The queue of high-edge cells developed in find_flat_edges() is copied
   into the procedure. A breadth-first expansion labels cells by their
@@ -103,7 +103,7 @@ static void BuildAwayGradient(
 //Procedure: BuildTowardsCombinedGradient
 /**
   @brief Builds gradient away from the low edges of flats, combines gradients
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   The queue of low-edge cells developed in find_flat_edges() is copied
   into the procedure. A breadth-first expansion labels cells by their
@@ -196,7 +196,7 @@ static void BuildTowardsCombinedGradient(
 //Procedure: label_this
 /**
   @brief Labels all the cells of a flat with a common label.
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   Performs a flood fill operation which labels all the cells of a flat
   with a common label. Each flat will have a unique label
@@ -248,7 +248,7 @@ static void label_this(
 //Procedure: find_flat_edges
 /**
   @brief Identifies cells adjacent to higher and lower terrain
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   Cells adjacent to lower and higher terrain are identified and
   added to the appropriate queue
@@ -313,7 +313,7 @@ static void find_flat_edges(
 //Procedure: resolve_flats_barnes
 /**
   @brief  Performs the flat resolution by Barnes, Lehman, and Mulla.
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   TODO
 
@@ -410,7 +410,7 @@ void resolve_flats_barnes(
 //d8_masked_FlowDir
 /**
   @brief  Helper function to d8_flow_flats()
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   This determines a cell's flow direction, taking into account flat membership.
   It is a helper function to d8_flow_flats()
@@ -450,7 +450,7 @@ static int d8_masked_FlowDir(
 //d8_flow_flats
 /**
   @brief  Calculates flow directions in flats
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   This determines flow directions within flats which have been resolved
   using resolve_flats_barnes().
@@ -502,7 +502,7 @@ void d8_flow_flats(
 //d8_flats_alter_dem
 /**
   @brief  Alters the elevations of the DEM so that all flats drain
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   This alters elevations within the DEM so that flats which have been
   resolved using resolve_flats_barnes() will drain.

@@ -13,7 +13,7 @@
 //d8_FlowDir
 /**
   @brief  Calculates the D8 flow direction of a cell
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   This calculates the D8 flow direction of a cell using the D8
   neighbour system, as defined in utility.h. Cells on the edge
@@ -76,7 +76,7 @@ static int d8_FlowDir(const array2d<T> &elevations, const int x, const int y){
 //d8_flow_directions
 /**
   @brief  Calculates the D8 flow directions of a DEM
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   This calculates the D8 flow directions of a DEM. Its argument
   'flowdirs' will return a grid with flow directions using the D8

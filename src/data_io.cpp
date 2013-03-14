@@ -17,7 +17,7 @@
 //write_arrows
 /**
   @brief  Writes an arrow representation of a 2D D8 flow direction array
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   @param[in] &filename     Name of file to write to
   @param[in] &elevations   2D array of D8 flow directions
@@ -68,7 +68,7 @@ int write_arrows(const char filename[], const char_2d &flowdirs){
 //load_ascii_data
 /**
   @brief  Reads an ArcGrid ASCII file
-  @author Richard Barnes
+  @author Richard Barnes (rbarnes@umn.edu)
 
   @param[in]  &filename     Name of ArcGrid ASCII file to read
   @param[out] &elevations   DEM object containing contents of file
