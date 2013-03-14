@@ -28,6 +28,10 @@ int main(int argc, char **argv){
   flat_resolution_timer.stop();
 	d8_flow_flats(flat_resolution_mask,labels,flowdirs);
 
+//  flowdirs.init(-4);
+//  d8_flats_alter_dem(flat_resolution_mask, labels, elevations);
+//  d8_flow_directions(elevations,flowdirs);
+
 	output_ascii_data("out_barnes",flowdirs,0);
   write_arrows("out_barnes_arrows",flowdirs);
 
