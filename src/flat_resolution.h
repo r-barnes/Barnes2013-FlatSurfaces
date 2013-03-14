@@ -414,7 +414,7 @@ void resolve_flats_barnes(
   It is a helper function to d8_flow_flats()
 
   @param[in]  &flat_mask      A mask from resolve_flats_barnes()
-  @param[in]  &groups         A grouping from resolve_flats_barnes()
+  @param[in]  &labels         A grouping from resolve_flats_barnes()
   @param[in]  x               x coordinate of cell
   @param[in]  y               y coordinate of cell
 
@@ -422,7 +422,7 @@ void resolve_flats_barnes(
 */
 static int d8_masked_FlowDir(
   const int_2d &flat_mask,
-  const int_2d &groups,
+  const int_2d &labels,
   const int x,
   const int y
 ){
@@ -434,7 +434,7 @@ static int d8_masked_FlowDir(
   for(int n=1;n<=8;n++){
     int nx=x+dx[n];
     int ny=y+dy[n];
-    if( groups(nx,ny)!=groups(x,y))
+    if( labels(nx,ny)!=labels(x,y))
       continue;
     if(  flat_mask(nx,ny)<minimum_elevation || (flat_mask(nx,ny)==minimum_elevation && flowdir>0 && flowdir%2==0 && n%2==1) ){
       minimum_elevation=flat_mask(nx,ny);
@@ -456,7 +456,7 @@ static int d8_masked_FlowDir(
   Uses the helper function d8_masked_FlowDir()
 
   @param[in]  &flat_mask      A mask from resolve_flats_barnes()
-  @param[in]  &groups         A grouping from resolve_flats_barnes()
+  @param[in]  &labels         A grouping from resolve_flats_barnes()
   @param[out] &flowdirs       Returns flat-resolved flow directions
 
   @pre
@@ -465,7 +465,7 @@ static int d8_masked_FlowDir(
     2. Any cell without a local gradient has a value of #NO_FLOW in
        **flowdirs**; all other cells have defined flow directions.
     3. If a cell is part of a flat, it has a value greater than zero in
-       **groups** indicating which flat it is a member of; otherwise, it has a
+       **labels** indicating which flat it is a member of; otherwise, it has a
        value of 0.
 
   @post
@@ -477,7 +477,7 @@ static int d8_masked_FlowDir(
 template<class U>
 void d8_flow_flats(
   const int_2d &flat_mask,
-  const int_2d &groups,
+  const int_2d &labels,
   array2d<U> &flowdirs
 ){
   ProgressBar progress;
@@ -491,7 +491,7 @@ void d8_flow_flats(
       if(flat_mask(x,y)==flat_mask.no_data)
         continue;
       else if (flowdirs(x,y)==NO_FLOW)
-        flowdirs(x,y)=d8_masked_FlowDir(flat_mask,groups,x,y);
+        flowdirs(x,y)=d8_masked_FlowDir(flat_mask,labels,x,y);
   }
   diagnostic_arg(SUCCEEDED_IN,progress.stop());
 }
