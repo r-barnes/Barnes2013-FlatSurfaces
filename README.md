@@ -3,7 +3,7 @@ Barnes2013-FlatSurfaces
 
 **Title of Manuscript**:
 An Efficient Assignment of Drainage Direction Over Flat
-Surfaces in Raster Digital Elevation Models
+Surfaces in Raster Digital Elevation Models  (TODO: DOI, following publication)
 
 **Authors**: Richard Barnes, Clarence Lehman, David Mulla
 
