@@ -499,7 +499,7 @@ void d8_flow_flats(
 }
 
 
-//d8_flats_alterdem
+//d8_flats_alter_dem
 /**
   @brief  Alters the elevations of the DEM so that all flats drain
   @author Richard Barnes
