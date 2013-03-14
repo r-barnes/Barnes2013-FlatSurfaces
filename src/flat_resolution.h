@@ -543,6 +543,8 @@ void d8_flats_alter_dem(
       bool higher[9];
       for(int n=1;n<=8;++n)
         higher[n]=elevations(x,y)>elevations(x+dx[n],y+dy[n]);
+      //TODO: nextafterf is the floating point version; should use an
+      //overloaded version instead to be able to handle both double and float
       for(int i=0;i<flat_mask(x,y);++i)
         elevations(x,y)=nextafterf(elevations(x,y),std::numeric_limits<U>::infinity());
       for(int n=1;n<=8;++n){
