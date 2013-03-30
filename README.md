@@ -46,7 +46,7 @@ directions are also printed as a matrix of arrows to **out\_garbrecht\_arrows**.
 
 The directory **src/** contains the source code for reference implementations.
 The source for the improved algorithm is drawn from the RichDEM hydroanalysis
-pacakge. All code can be compiled by running the **makefile** included in the
+package. All code can be compiled by running the **makefile** included in the
 root directory. Running the BASH script **FIRST_RUN** will compile everything
 and run the programs.
 
