@@ -3,11 +3,18 @@ Barnes2013-FlatSurfaces
 
 **Title of Manuscript**:
 An Efficient Assignment of Drainage Direction Over Flat
-Surfaces in Raster Digital Elevation Models  (TODO: DOI, following publication)
+Surfaces in Raster Digital Elevation Models
 
 **Authors**: Richard Barnes, Clarence Lehman, David Mulla
 
 **Corresponding Author**: Richard Barnes (rbarnes@umn.edu)
+
+**DOI Number of Manuscript**
+[10.1016/j.cageo.2013.01.009](http://dx.doi.org/10.1016/j.cageo.2013.01.009)
+
+**Code Repositories**
+ * [Author's GitHub Repository](https://github.com/r-barnes/Barnes2013-FlatSurfaces)
+ * [Journal's GitHub Repository](https://github.com/cageo)
 
 This repository contains a reference implementation of the algorithms presented
 in the manuscript above. It also contains a reference implementation of the
