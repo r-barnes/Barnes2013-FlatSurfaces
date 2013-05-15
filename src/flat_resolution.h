@@ -10,8 +10,8 @@
 #ifndef _flat_resolution_included
 #define _flat_resolution_included
 
-#include "utility.h"
-#include "data_structures.h"
+#include "utility.hpp"
+#include "data_structures.hpp"
 #include <deque>
 #include <vector>
 #include <queue>

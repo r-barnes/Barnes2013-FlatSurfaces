@@ -7,11 +7,11 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include "data_structures.h"
+#include "data_structures.hpp"
 #include <fcntl.h>
 #include <errno.h>
 #include <string.h>
-#include "utility.h"
+#include "utility.hpp"
 #include <fstream>
 
 //write_arrows

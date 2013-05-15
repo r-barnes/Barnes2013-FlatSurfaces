@@ -1,7 +1,7 @@
-#include "utility.h"
-#include "data_structures.h"
-#include "data_io.h"
-#include "d8_methods.h"
+#include "utility.hpp"
+#include "data_structures.hpp"
+#include "data_io.hpp"
+#include "d8_methods.hpp"
 #include <deque>
 using namespace std;
 

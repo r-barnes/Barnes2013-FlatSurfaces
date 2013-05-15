@@ -1,7 +1,7 @@
 #ifndef _d8_methods_included
 #define _d8_methods_included
 
-#include "data_structures.h"
+#include "data_structures.hpp"
 #include <queue>
 #ifdef _OPENMP
   #include <omp.h>

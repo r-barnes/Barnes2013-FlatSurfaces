@@ -1,8 +1,8 @@
-#include "utility.h"
-#include "data_structures.h"
-#include "data_io.h"
-#include "d8_methods.h"
-#include "flat_resolution.h"
+#include "utility.hpp"
+#include "data_structures.hpp"
+#include "data_io.hpp"
+#include "d8_methods.hpp"
+#include "flat_resolution.hpp"
 #include <cstdio>
 #include <string>
 #include <sys/time.h>
