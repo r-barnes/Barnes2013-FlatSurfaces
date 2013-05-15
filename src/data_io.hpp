@@ -13,6 +13,7 @@
 #include <string>
 #include <iostream>
 #include <typeinfo>
+#include <cstdlib>
 
 class must_be {
   public:
