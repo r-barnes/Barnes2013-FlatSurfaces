@@ -94,9 +94,11 @@ int GradientAwayFromHigher(const float_2d &elevations, const char_2d &flowdirs, 
 }
 
 int CombineGradients(float_2d &elevations, const int_2d &inc1, const int_2d &inc2, float epsilon){
+  diagnostic("Combining the gradients...");
 	for(int x=0;x<elevations.width();++x)
 	for(int y=0;y<elevations.height();++y)
 		elevations(x,y)+=(inc1(x,y)+inc2(x,y))*epsilon;
+  diagnostic("succeeded.\n");
 }
 
 int main(int argc, char **argv){
