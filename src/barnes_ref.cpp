@@ -25,10 +25,11 @@ int main(int argc, char **argv){
   flat_resolution_timer.start();
 	int_2d flat_resolution_mask, labels;
 	resolve_flats_barnes(elevations,flowdirs,flat_resolution_mask,labels);
-  flat_resolution_timer.stop();
+  printf("%f seconds used to resolve flats.\n",flat_resolution_timer.lap());
 
   //If you want to leave the DEM unaltered, use this command
-	d8_flow_flats(flat_resolution_mask,labels,flowdirs);
+  d8_flow_flats(flat_resolution_mask,labels,flowdirs);
+  printf("%f seconds used to resolve flats and determine flow directions.\n",flat_resolution_timer.lap());
 
   //If you want to alter the DEM to enforce drainage, use these commands instead
 /*
@@ -37,12 +38,11 @@ int main(int argc, char **argv){
   d8_flow_directions(elevations,flowdirs);
 */
 
-	output_ascii_data("out_barnes",flowdirs,0);
+  output_ascii_data("out_barnes",flowdirs,0);
   write_arrows("out_barnes_arrows",flowdirs);
 
   overall.stop();
   printf("Barnes algorithm took %f seconds overall.\n",overall.accumulated());
-  printf("%f seconds was used to resolve flats.\n",flat_resolution_timer.accumulated());
 
 	return 0;
 }

@@ -61,9 +61,13 @@ static void BuildAwayGradient(
   const array2d<T> &flowdirs, int_2d &flat_mask, std::deque<grid_cell> edges,
   std::vector<int> &flat_height, const int_2d &labels
 ){
+  Timer timer;
+  timer.start();
+
   int x,y,nx,ny;
   int loops=1;
   grid_cell iteration_marker(-1,-1);
+
 
   diagnostic("Performing Barnes flat resolution's away gradient...");
 
@@ -86,16 +90,17 @@ static void BuildAwayGradient(
     flat_mask(x,y)=loops;
     flat_height[labels(x,y)]=loops;
     for(int n=1;n<=8;n++){
-      nx=x+dx[n];  
+      nx=x+dx[n];
       ny=y+dy[n];
-      if(labels.in_grid(nx,ny) 
-          && labels(nx,ny)==labels(x,y) 
+      if(labels.in_grid(nx,ny)
+          && labels(nx,ny)==labels(x,y)
           && flowdirs(nx,ny)==NO_FLOW)
         edges.push_back(grid_cell(nx,ny));
     }
   }
 
-  diagnostic("succeeded!\n");
+  timer.stop();
+  diagnostic_arg("succeeded in %fs!\n",timer.accumulated());
 }
 
 
@@ -145,9 +150,13 @@ static void BuildTowardsCombinedGradient(
   const array2d<T> &flowdirs, int_2d &flat_mask, std::deque<grid_cell> edges,
   std::vector<int> &flat_height, const int_2d &labels
 ){
+  Timer timer;
+  timer.start();
+
   int x,y,nx,ny;
   int loops=1;
   grid_cell iteration_marker(-1,-1);
+
 
   diagnostic("Barnes flat resolution: toward and combined gradients...");
 
@@ -180,16 +189,17 @@ static void BuildTowardsCombinedGradient(
       flat_mask(x,y)=2*loops;
 
     for(int n=1;n<=8;n++){
-      nx=x+dx[n];  
+      nx=x+dx[n];
       ny=y+dy[n];
-      if(labels.in_grid(nx,ny) 
-          && labels(nx,ny)==labels(x,y) 
+      if(labels.in_grid(nx,ny)
+          && labels(nx,ny)==labels(x,y)
           && flowdirs(nx,ny)==NO_FLOW)
         edges.push_back(grid_cell(nx,ny));
     }
   }
 
-  diagnostic("succeeded!\n");
+  timer.stop();
+  diagnostic_arg("succeeded in %fs!\n",timer.accumulated());
 }
 
 
@@ -343,6 +353,9 @@ void resolve_flats_barnes(
   int_2d &flat_mask,
   int_2d &labels
 ){
+  Timer timer;
+  timer.start();
+
   std::deque<grid_cell> low_edges,high_edges;  //TODO: Need estimate of size
 
   diagnostic("\n###Barnes Flat Resolution\n");
@@ -401,6 +414,9 @@ void resolve_flats_barnes(
   BuildTowardsCombinedGradient(
     flowdirs, flat_mask, low_edges, flat_height, labels
   );
+
+  timer.stop();
+  diagnostic_arg("Calculation time for Barnes algorithm: %fs\n", timer.accumulated());
 }
 
 
@@ -549,7 +565,7 @@ void d8_flats_alter_dem(
         elevations(x,y)=nextafterf(elevations(x,y),std::numeric_limits<U>::infinity());
       for(int n=1;n<=8;++n){
         int nx=x+dx[n];
-        int ny=y+dy[n];      
+        int ny=y+dy[n];
         if(labels(nx,ny)==labels(x,y))
           continue;
         if(elevations(x,y)<elevations(nx,ny))
