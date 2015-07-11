@@ -432,7 +432,7 @@ void resolve_flats_barnes(
   It is a helper function to d8_flow_flats()
 
   @param[in]  &flat_mask      A mask from resolve_flats_barnes()
-  @param[in]  &labels         A grouping from resolve_flats_barnes()
+  @param[in]  &labels         The labels output from resolve_flats_barnes()
   @param[in]  x               x coordinate of cell
   @param[in]  y               y coordinate of cell
 
@@ -474,7 +474,7 @@ static int d8_masked_FlowDir(
   Uses the helper function d8_masked_FlowDir()
 
   @param[in]  &flat_mask      A mask from resolve_flats_barnes()
-  @param[in]  &labels         A grouping from resolve_flats_barnes()
+  @param[in]  &labels         The labels output from resolve_flats_barnes()
   @param[out] &flowdirs       Returns flat-resolved flow directions
 
   @pre
@@ -524,7 +524,7 @@ void d8_flow_flats(
   resolved using resolve_flats_barnes() will drain.
 
   @param[in]     &flat_mask   A mask from resolve_flats_barnes()
-  @param[in]     &groups      A grouping from resolve_flats_barnes()
+  @param[in]     &labels      A grouping from resolve_flats_barnes()
   @param[in,out] &elevations  2D array of elevations
 
   @pre
