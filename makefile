@@ -7,7 +7,7 @@ CFLAGS = -g -O3 -Wall --std=c++11 $(GDAL_FLAGS) $(RICHDEM_FLAGS)
 LIBS = $(GDAL_LIBS)
 
 default:
-	$(CC) $(CFLAGS) barnes_ref.cpp             -o barnes_algorithm.exe     $(LIBS)
+	$(CC) $(CFLAGS) main.cpp -o flats.exe $(LIBS)
 
 clean:
 	rm -rf *.exe

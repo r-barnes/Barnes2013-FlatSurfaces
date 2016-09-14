@@ -116,7 +116,7 @@ int Router(std::string inputfile, Arguments ... args){
 int main(int argc, char **argv){
   std::string analysis = PrintRichdemHeader(argc, argv);
 
-  if(argc!=3 && argc!==4){
+  if(argc!=3 && argc!=4){
     std::cout<<"Syntax: "<<argv[0]<<" gentest <SIZE> <OUTPUT NAME>\n";
     std::cout<<"\tGenerates a test DEM\n\n";
     std::cout<<"Syntax: "<<argv[0]<<" <ALGORITHM> <INPUT DEM> <OUTPUT NAME>\n";
