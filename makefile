@@ -2,10 +2,9 @@ CC = g++
 CFLAGS = -O3
 
 default:
-	$(MAKE) --directory=src/
-	mv src/barnes_algorithm.exe       ./
-	mv src/garbrecht_algorithm.exe    ./
-	mv src/generate_square_grid.exe   ./
+	$(CC) $(CFLAGS) barnes_ref.cpp             -o barnes_algorithm.exe
+	$(CC) $(CFLAGS) garbrecht_ref.cpp          -o garbrecht_algorithm.exe
+	$(CC) $(CFLAGS) generate_square_grid.cpp   -o generate_square_grid.exe
 
 clean:
-	rm -f barnes_algorithm.exe garbrecht_algorithm.exe generate_square_grid.exe
+	rm -rf *.exe
