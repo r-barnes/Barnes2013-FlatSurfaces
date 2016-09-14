@@ -59,3 +59,9 @@ and run the programs.
 
 At the time of writing, the entire RichDEM code base could be downloaded from:
 [https://github.com/r-barnes](https://github.com/r-barnes)
+
+Using This As A Tool
+====================
+
+Don't. If you want to use these algorithms as an out-of-the-box terrain analysis
+system, please download [RichDEM](https://github.com/r-barnes/richdem).
