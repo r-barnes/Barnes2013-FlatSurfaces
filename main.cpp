@@ -57,8 +57,9 @@ int PerformAlgorithm(char option, std::string filename, std::string output_name,
     Garbrecht_GradientTowardsLower  (elevations, flowdirs, flats, inc1);
     Garbrecht_GradientAwayFromHigher(elevations, flowdirs, flats, inc2);
     Garbrecht_CombineGradients(elevations, inc1, inc2, 0.001);
-    flat_resolution_timer.stop();
+    std::cerr<<"t Seconds used to resolve flats = "<<flat_resolution_timer.lap()<<std::endl;
     d8_flow_directions(elevations,flowdirs);
+    std::cerr<<"t Seconds used to resolve flats and determine flow directions = "<<flat_resolution_timer.lap()<<std::endl;
   } else if(option=='3'){
     //If you want to alter the DEM to enforce drainage, use these commands instead
 
@@ -67,15 +68,8 @@ int PerformAlgorithm(char option, std::string filename, std::string output_name,
     //d8_flow_directions(elevations,flowdirs);
   }
 
-
-//  write_arrows("out_barnes_arrows",flowdirs);
-
-  //TODO: Flat resolution time
   flowdirs.saveGDAL(output_name,analysis);
   std::cerr<<"t Wall-time = "<<overall.stop()<<std::endl;
-
-
-
 
   return 0;
 }
@@ -116,7 +110,7 @@ int Router(std::string inputfile, Arguments ... args){
 int main(int argc, char **argv){
   std::string analysis = PrintRichdemHeader(argc, argv);
 
-  if(argc!=3 && argc!=4){
+  if(argc!=4){
     std::cout<<"Syntax: "<<argv[0]<<" gentest <SIZE> <OUTPUT NAME>\n";
     std::cout<<"\tGenerates a test DEM\n\n";
     std::cout<<"Syntax: "<<argv[0]<<" <ALGORITHM> <INPUT DEM> <OUTPUT NAME>\n";
@@ -126,9 +120,9 @@ int main(int argc, char **argv){
     return -1;
   }
 
-  if(argv[1]==std::string("gentest") && argc==3){
+  if(argv[1]==std::string("gentest")){
     GenerateDEM(std::stoi(argv[2]),argv[3],analysis);
-  } else if(argc==4) {
+  } else {
     Router(argv[2],argv[1][0],argv[2],argv[3],analysis);    
   }
 
